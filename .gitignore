@@ -74,11 +74,11 @@ temp/
 *.code-workspace
 
 # Docker files and directories
-Dockerfile
-Dockerfile.*
-docker-compose.yml
-docker-compose.override.yml
-.dockerignore
+# Dockerfile
+# Dockerfile.*
+# docker-compose.yml
+# docker-compose.override.yml
+# .dockerignore
 
 # Build directories
 build/
