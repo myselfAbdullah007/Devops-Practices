@@ -20,7 +20,7 @@ jobs:
         uses: docker/login-action@v3  # Updated version
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build and push Docker image 1
         uses: docker/build-push-action@v5  # Updated version
