@@ -25,7 +25,7 @@ jobs:
       - name: Build and push Docker image 1
         uses: docker/build-push-action@v5  # Updated version
         with:
-          context: ./Simple_Docker_Image
+          context: ./SImple_Docker_Image
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/proj1-image1:latest
           cache-from: type=gha
