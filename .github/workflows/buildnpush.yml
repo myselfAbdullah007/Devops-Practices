@@ -34,7 +34,7 @@ jobs:
       - name: Build and push Docker image 2
         uses: docker/build-push-action@v5  # Updated version
         with:
-          context: ./node-postres-docker
+          context: ./node-postgres-docker
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/proj1-image2:latest
           cache-from: type=gha
