@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  app1:
+    build:
+      context: ./SImple_Docker_Image  # Path to first Dockerfile
+    image: ${{ secrets.DOCKERHUB_USERNAME }}/proj1-image1:latest
+    restart: always
+
+  app2:
+    build:
+      context: ./node-postgres-docker  # Path to second Dockerfile
+    image: ${{ secrets.DOCKERHUB_USERNAME }}/proj1-image2:latest
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
