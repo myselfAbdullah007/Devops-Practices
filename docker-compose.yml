@@ -4,13 +4,13 @@ services:
   app1:
     build:
       context: ./SImple_Docker_Image  # Path to first Dockerfile
-    image: ${{ secrets.DOCKERHUB_USERNAME }}/proj1-image1:latest
+    image: ${DOCKERHUB_USERNAME}/proj1-image1:latest
     restart: always
 
   app2:
     build:
       context: ./node-postgres-docker  # Path to second Dockerfile
-    image: ${{ secrets.DOCKERHUB_USERNAME }}/proj1-image2:latest
+    image: ${DOCKERHUB_USERNAME}/proj1-image2:latest
     restart: always
     depends_on:
       - postgres
